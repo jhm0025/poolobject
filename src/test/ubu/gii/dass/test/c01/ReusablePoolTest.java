@@ -69,13 +69,27 @@ public class ReusablePoolTest {
         assertEquals(pool, ReusablePool.getInstance());
     }
 
-	/**
+    /**
+	 * testAcquireReusable()
+	 * 
+	 * 
 	 * Test method for {@link ubu.gii.dass.c01.ReusablePool#acquireReusable()}.
+	 * @throws NotFreeInstanceException 
+	 * @throws DuplicatedInstanceException 
 	 */
 	@Test
-	public void testAcquireReusable() {
-		fail("Not yet implemented");
-	}
+	public void testAcquireReusable() throws NotFreeInstanceException, DuplicatedInstanceException {
+		
+		reu = pool.acquireReusable();
+		reu2 = pool.acquireReusable();
+					
+		assertEquals(pool.acquireReusable(), null);
+				
+		pool.releaseReusable(reu);
+		assertEquals(reu, pool.acquireReusable());
+		
+		}
+
 
 	/**
 	 * Test method for {@link ubu.gii.dass.c01.ReusablePool#releaseReusable(ubu.gii.dass.c01.Reusable)}.

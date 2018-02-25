@@ -44,20 +44,30 @@ public class ReusablePoolTest {
 		pool = ReusablePool.getInstance();
 		
 	}
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@After
-	public void tearDown() throws Exception {
-	}
 
 	/**
-	 * Test method for {@link ubu.gii.dass.c01.ReusablePool#getInstance()}.
-	 */
-	@Test
-	public void testGetInstance() {
-		fail("Not yet implemented");
-	}
+     * tearDown()
+     * 
+     * Comprobamos que no existe otra instancia en el pool.
+     * 
+     * @throws java.lang.Exception
+     */
+    @After
+    public void tearDown() throws Exception {
+            pool = null;
+    }
+
+    /**
+     * testGetInstance()
+     * 
+     * 
+     * Test method for {@link ubu.gii.dass.c01.ReusablePool#getInstance()}.
+     */
+    @Test
+    public void testGetInstance() {
+
+        assertEquals(pool, ReusablePool.getInstance());
+    }
 
 	/**
 	 * Test method for {@link ubu.gii.dass.c01.ReusablePool#acquireReusable()}.

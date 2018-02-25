@@ -5,3 +5,4 @@
 *.war
 *.ear
 /bin
+src/test/ubu/gii/dass/test/c01/ReusablePoolTest.java
